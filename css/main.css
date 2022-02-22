@@ -10,7 +10,6 @@
 html {
   font-size: 62.5%;
   font-family: "Roboto", sans-serif;
-  color: #bbb;
 }
 
 body {
@@ -25,6 +24,10 @@ header {
   height: 10rem;
   width: 80%;
   background-color: red;
+}
+
+.hide {
+  display: none;
 }
 
 .meal__section {
@@ -46,6 +49,11 @@ header {
 ion-icon {
   color: #5095b3;
   font-weight: 700;
+}
+
+h2,
+h3 {
+  color: #bbb;
 }
 
 @-webkit-keyframes moveInLeft {
@@ -164,7 +172,10 @@ ion-icon {
 
 .meal__section {
   margin: 0rem auto;
-  width: 80%;
+  width: 100%;
+  padding: 0 10rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(7%, #1d3461), color-stop(7%, #fff), color-stop(60%, #1d3461));
+  background-image: linear-gradient(#1d3461 7%, #fff 7% 60%, #1d3461 60% 100%);
 }
 .meal__section__header {
   margin-bottom: 2.4rem;
@@ -204,6 +215,7 @@ ion-icon {
           justify-content: space-between;
   font-size: 1.6rem;
   margin-bottom: 0.4rem;
+  color: #bbb;
 }
 .meal__info, .meal__add {
   position: absolute;
@@ -218,23 +230,7 @@ ion-icon {
   right: 5px;
 }
 
-.test {
-  -webkit-transition: all 2s;
-  transition: all 2s;
-}
-
-.test3 {
-  -webkit-transition: all 2s;
-  transition: all 2s;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 43;
-}
-
-.fixed-test {
+.meal__max-fixed {
   position: fixed;
   z-index: 200;
   top: 50%;
@@ -243,7 +239,7 @@ ion-icon {
           transform: translate(-50%, -50%);
 }
 
-.test5 {
+.meal__max-bcblack {
   content: "";
   position: fixed;
   top: 50%;
@@ -293,6 +289,7 @@ ion-icon {
 }
 .meal__max__ingredients {
   grid-area: ingredients;
+  color: #bbb;
   width: 100%;
   -webkit-animation: slideR 1s linear;
           animation: slideR 1s linear;
@@ -321,6 +318,7 @@ ion-icon {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 1.4rem;
+  color: #bbb;
   position: relative;
 }
 .meal__max__more__person {
@@ -358,7 +356,6 @@ ion-icon {
 }
 .meal__max__title {
   grid-area: title;
-  color: #fff;
   font-size: 1.8rem;
   text-transform: uppercase;
 }
@@ -375,6 +372,7 @@ ion-icon {
 .meal__max__todo .todo__text {
   font-size: 1.4rem;
   font-weight: 400;
+  color: #bbb;
   -webkit-animation: slide 1s linear;
           animation: slide 1s linear;
 }
@@ -442,4 +440,109 @@ ion-icon {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+}
+.list__container {
+  margin: 5rem auto;
+  width: 20rem;
+  position: fixed;
+  left: 5rem;
+  z-index: 33;
+}
+.list__container .list__counter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  background-color: #5095b3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translate(-60%, -60%);
+          transform: translate(-60%, -60%);
+  color: #fb3640;
+}
+
+.list {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: green;
+  -webkit-box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+  background-color: #1f487e;
+  color: #bbb;
+}
+.list__title {
+  font-size: 1.4rem;
+  background-color: red;
+  text-transform: uppercase;
+}
+.list__days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.list__days__day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.list__days__day span {
+  padding-left: 0.5rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.list__days__day span:hover {
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
+}
+.list__days__day ion-icon {
+  font-size: 1.6rem;
+  color: #fb3640;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.list__days__day ion-icon:hover, .list__days__day ion-icon:active {
+  -webkit-transform: scale(160%);
+          transform: scale(160%);
+}
+.list p {
+  padding: 0.2rem 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: #5095b3;
+}
+.list div {
+  font-size: 1rem;
 }
