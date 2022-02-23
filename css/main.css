@@ -52,8 +52,76 @@ ion-icon {
 }
 
 h2,
-h3 {
+h3,
+h4 {
   color: #bbb;
+}
+
+.addIcon__card-min,
+.infoIcon__card-min {
+  position: absolute;
+  font-size: 1.8rem;
+}
+
+.addIcon__card-min {
+  bottom: 5px;
+  right: 5px;
+}
+
+.infoIcon__card-min {
+  bottom: 5px;
+  left: 5px;
+}
+
+.timeIcon__card-min {
+  font-size: 2rem;
+}
+
+.closeIcon__card-max {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+  font-size: 2rem;
+  color: #fb3640;
+}
+
+.timeIcon__card-max {
+  font-size: 1.8rem;
+}
+
+.addPersonIcon__card-max {
+  font-size: 1.8rem;
+}
+
+.removePersonIcon__card-max {
+  font-size: 1.8rem;
+  display: none;
+}
+
+.closeIcon__list {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 100%;
+  background-color: #5095b3;
+  display: none;
+  -webkit-transform: translate(60%, -60%);
+          transform: translate(60%, -60%);
+  color: #fb3640;
+}
+
+.removeIcon__list {
+  font-size: 1.6rem;
+  color: #fb3640;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.removeIcon__list:hover, .removeIcon__list:active {
+  -webkit-transform: scale(160%);
+          transform: scale(160%);
 }
 
 @-webkit-keyframes moveInLeft {
@@ -197,12 +265,12 @@ h3 {
   border-radius: 10px;
   width: 22rem;
 }
-.meal__text {
+.meal__name {
   color: #bbb;
   font-size: 1.4rem;
   margin: 1rem 0;
 }
-.meal__more {
+.meal__info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -214,23 +282,20 @@ h3 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 1.6rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.7rem;
   color: #bbb;
 }
-.meal__info, .meal__add {
-  position: absolute;
-  font-size: 1.8rem;
-}
-.meal__info {
-  bottom: 5px;
-  left: 5px;
-}
-.meal__add {
-  bottom: 5px;
-  right: 5px;
+.meal__info__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
 }
 
-.meal__max-fixed {
+.mealMax-fixed {
   position: fixed;
   z-index: 200;
   top: 50%;
@@ -238,22 +303,7 @@ h3 {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-
-.meal__max-bcblack {
-  content: "";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 105%;
-  height: 105%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 55;
-  display: none;
-}
-
-.meal__max {
+.mealMax-fixed .mealMax {
   margin-bottom: 4.8rem;
   border-radius: 10px;
   background-color: #1f487e;
@@ -275,37 +325,12 @@ h3 {
   padding: 1.6rem;
   transition: all 2s;
 }
-.meal__max__close {
-  position: absolute;
-  right: 0.4rem;
-  top: 0.4rem;
-  font-size: 2rem;
-  color: #fb3640;
-}
-.meal__max__img {
-  grid-area: img;
-  border-radius: 10px;
-  width: 100%;
-}
-.meal__max__ingredients {
-  grid-area: ingredients;
-  color: #bbb;
-  width: 100%;
-  -webkit-animation: slideR 1s linear;
-          animation: slideR 1s linear;
-}
-.meal__max__ingredients .ing__title {
+.mealMax-fixed .mealMax__title {
+  grid-area: title;
   font-size: 1.8rem;
   text-transform: uppercase;
-  text-align: end;
 }
-.meal__max__ingredients .ing__el {
-  font-family: "Roboto Mono", monospace;
-  font-size: 1.2rem;
-  font-weight: 400;
-  text-align: end;
-}
-.meal__max__more {
+.mealMax-fixed .mealMax__info {
   grid-area: more;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -321,7 +346,17 @@ h3 {
   color: #bbb;
   position: relative;
 }
-.meal__max__more__person {
+.mealMax-fixed .mealMax__info__persons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+.mealMax-fixed .mealMax__info__time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -330,74 +365,66 @@ h3 {
           align-items: center;
   gap: 0.5rem;
 }
-.meal__max__more__person span {
+.mealMax-fixed .mealMax__info__time__text {
   font-weight: 700;
 }
-.meal__max__more__person ion-icon {
-  font-size: 1.8rem;
-}
-.meal__max__more__time {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.5rem;
-}
-.meal__max__more__time span {
+.mealMax-fixed .mealMax__info__kcal {
   font-weight: 700;
 }
-.meal__max__more__time ion-icon {
-  font-size: 1.8rem;
+.mealMax-fixed .mealMax__img {
+  grid-area: img;
+  border-radius: 10px;
+  width: 100%;
 }
-.meal__max__more__kcal {
-  font-weight: 700;
+.mealMax-fixed .mealMax__ingredients {
+  grid-area: ingredients;
+  color: #bbb;
+  width: 100%;
+  -webkit-animation: slideR 1s linear;
+          animation: slideR 1s linear;
 }
-.meal__max__title {
-  grid-area: title;
+.mealMax-fixed .mealMax__ingredients__title {
   font-size: 1.8rem;
   text-transform: uppercase;
+  text-align: end;
 }
-.meal__max__todo {
+.mealMax-fixed .mealMax__ingredients__content {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: end;
+}
+.mealMax-fixed .mealMax__recipe {
   grid-area: todo;
   -webkit-transition: 2s;
   transition: 2s;
 }
-.meal__max__todo .todo__title {
+.mealMax-fixed .mealMax__recipe__title {
   font-size: 1.8rem;
   text-transform: uppercase;
+  color: #bbb;
   margin-bottom: 1rem;
 }
-.meal__max__todo .todo__text {
+.mealMax-fixed .mealMax__recipe__content {
   font-size: 1.4rem;
   font-weight: 400;
   color: #bbb;
   -webkit-animation: slide 1s linear;
           animation: slide 1s linear;
 }
-.meal__max__info, .meal__max__add {
-  position: absolute;
-  font-size: 1.8rem;
-}
-.meal__max__info {
-  bottom: 5px;
-  left: 5px;
-}
-.meal__max__add {
-  bottom: 5px;
-  right: 5px;
-}
 
-.add__meal {
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  cursor: pointer;
-}
-
-.add__meal:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+.mealMax-bcblack {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 105%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 55;
+  display: none;
 }
 
 @-webkit-keyframes slide {
@@ -468,26 +495,25 @@ h3 {
   -webkit-transform: translate(-60%, -60%);
           transform: translate(-60%, -60%);
   color: #fb3640;
+  cursor: pointer;
 }
-
-.list {
+.list__container .list {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: green;
   -webkit-box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
           box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
   background-color: #1f487e;
   color: #bbb;
 }
-.list__title {
+.list__container .list__title {
   font-size: 1.4rem;
   background-color: red;
   text-transform: uppercase;
 }
-.list__days {
+.list__container .list__days {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -501,39 +527,7 @@ h3 {
   gap: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.list__days__day {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-}
-.list__days__day span {
-  padding-left: 0.5rem;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-.list__days__day span:hover {
-  -webkit-transform: scale(120%);
-          transform: scale(120%);
-}
-.list__days__day ion-icon {
-  font-size: 1.6rem;
-  color: #fb3640;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-.list__days__day ion-icon:hover, .list__days__day ion-icon:active {
-  -webkit-transform: scale(160%);
-          transform: scale(160%);
-}
-.list p {
+.list__container .list__days__dName {
   padding: 0.2rem 0;
   -ms-flex-item-align: center;
       align-self: center;
@@ -543,6 +537,30 @@ h3 {
   text-transform: uppercase;
   background-color: #5095b3;
 }
-.list div {
+.list__container .list__days__day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 1.4rem;
+  cursor: pointer;
   font-size: 1rem;
+}
+.list__container .list__days__day__meal {
+  padding-left: 0.5rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.list__container .list__days__day__meal:hover {
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
+}
+
+.list__day__container {
+  height: 4.2rem;
 }
