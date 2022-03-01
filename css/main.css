@@ -63,14 +63,9 @@ h4 {
   font-size: 1.8rem;
 }
 
-.addIcon__card-min {
-  bottom: 5px;
-  right: 5px;
-}
-
 .infoIcon__card-min {
   bottom: 5px;
-  left: 5px;
+  right: 5px;
 }
 
 .timeIcon__card-min {
@@ -83,6 +78,13 @@ h4 {
   top: 0.4rem;
   font-size: 2rem;
   color: #fb3640;
+}
+
+.addIcon__card-max {
+  position: absolute;
+  left: 0.4rem;
+  top: 0.4rem;
+  font-size: 4rem;
 }
 
 .timeIcon__card-max {
@@ -113,6 +115,7 @@ h4 {
 }
 
 .removeIcon__list {
+  display: none;
   font-size: 1.6rem;
   color: #fb3640;
   -webkit-transition: all 0.5s;
@@ -241,7 +244,7 @@ h4 {
 .meal__section {
   margin: 0rem auto;
   width: 100%;
-  padding: 0 10rem;
+  padding: 0 0 0 10rem;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(7%, #1d3461), color-stop(7%, #fff), color-stop(60%, #1d3461));
   background-image: linear-gradient(#1d3461 7%, #fff 7% 60%, #1d3461 60% 100%);
 }
@@ -468,6 +471,175 @@ h4 {
             transform: translateX(0);
   }
 }
+.print__meals {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.print__meals__day__name {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  background-color: #ccc;
+}
+
+.print__meals__day__firstMeal .mealMax,
+.print__meals__day__secondMeal .mealMax,
+.print__meals__day__thirdMeal .mealMax {
+  margin-bottom: 4.8rem;
+  background-color: #fff;
+  width: 100rem;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  display: grid;
+  grid-template-areas: "title title" "more more" "ingredients ingredients" "todo todo";
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 1.6rem;
+  -webkit-column-gap: 0.8rem;
+     -moz-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+  padding: 1.6rem;
+  transition: all 2s;
+}
+.print__meals__day__firstMeal .mealMax__title,
+.print__meals__day__secondMeal .mealMax__title,
+.print__meals__day__thirdMeal .mealMax__title {
+  grid-area: title;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+}
+.print__meals__day__firstMeal .mealMax__title h4,
+.print__meals__day__secondMeal .mealMax__title h4,
+.print__meals__day__thirdMeal .mealMax__title h4 {
+  color: black;
+}
+.print__meals__day__firstMeal .mealMax__info,
+.print__meals__day__secondMeal .mealMax__info,
+.print__meals__day__thirdMeal .mealMax__info {
+  grid-area: more;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.4rem;
+  color: black;
+  position: relative;
+}
+.print__meals__day__firstMeal .mealMax__info__persons,
+.print__meals__day__secondMeal .mealMax__info__persons,
+.print__meals__day__thirdMeal .mealMax__info__persons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+.print__meals__day__firstMeal .mealMax__info__time,
+.print__meals__day__secondMeal .mealMax__info__time,
+.print__meals__day__thirdMeal .mealMax__info__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+.print__meals__day__firstMeal .mealMax__info__time__text,
+.print__meals__day__secondMeal .mealMax__info__time__text,
+.print__meals__day__thirdMeal .mealMax__info__time__text {
+  font-weight: 700;
+}
+.print__meals__day__firstMeal .mealMax__info__kcal,
+.print__meals__day__secondMeal .mealMax__info__kcal,
+.print__meals__day__thirdMeal .mealMax__info__kcal {
+  font-weight: 700;
+}
+.print__meals__day__firstMeal .mealMax__img,
+.print__meals__day__secondMeal .mealMax__img,
+.print__meals__day__thirdMeal .mealMax__img {
+  grid-area: img;
+  border-radius: 10px;
+  width: 100%;
+}
+.print__meals__day__firstMeal .mealMax__ingredients,
+.print__meals__day__secondMeal .mealMax__ingredients,
+.print__meals__day__thirdMeal .mealMax__ingredients {
+  grid-area: ingredients;
+  color: black;
+  width: 100%;
+  -webkit-animation: slideR 1s linear;
+          animation: slideR 1s linear;
+}
+.print__meals__day__firstMeal .mealMax__ingredients__title,
+.print__meals__day__secondMeal .mealMax__ingredients__title,
+.print__meals__day__thirdMeal .mealMax__ingredients__title {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  text-align: start;
+  margin-bottom: 0.5rem;
+}
+.print__meals__day__firstMeal .mealMax__ingredients__content,
+.print__meals__day__secondMeal .mealMax__ingredients__content,
+.print__meals__day__thirdMeal .mealMax__ingredients__content {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: start;
+}
+.print__meals__day__firstMeal .mealMax__recipe,
+.print__meals__day__secondMeal .mealMax__recipe,
+.print__meals__day__thirdMeal .mealMax__recipe {
+  grid-area: todo;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+.print__meals__day__firstMeal .mealMax__recipe__title,
+.print__meals__day__secondMeal .mealMax__recipe__title,
+.print__meals__day__thirdMeal .mealMax__recipe__title {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  color: black;
+  margin-bottom: 0.5rem;
+}
+.print__meals__day__firstMeal .mealMax__recipe__content,
+.print__meals__day__secondMeal .mealMax__recipe__content,
+.print__meals__day__thirdMeal .mealMax__recipe__content {
+  font-size: 2rem;
+  font-weight: 400;
+  color: black;
+  -webkit-animation: slide 1s linear;
+          animation: slide 1s linear;
+}
+
+.print__meals__day__secondMeal .mealMax {
+  border-top: 2px dashed black;
+  border-bottom: 2px dashed black;
+}
+
 .list__container {
   margin: 5rem auto;
   width: 20rem;
