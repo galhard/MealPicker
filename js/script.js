@@ -288,24 +288,6 @@ const meals = new Map([
           },
         },
       ],
-      [
-        'meal6',
-        {
-          title: 'Kanapki z twarożkiem i rzodkiewką 6',
-          time: 40,
-          kcal: 400,
-          recipe:
-            'Ser wymieszaj z jogurtem. Przypraw (pieprz, słodka papryka, bazylia). Posmaruej pieczywo twarożkiem. Na kanapce połóż pokrojoną rzodkiewkę',
-          ingredients: {
-            grams: new Map([
-              ['twaróg chudy', [90, 'g']],
-              ['jogurt naturalny', [45, 'g']],
-              ['rzodkiewka', [45, 'g']],
-            ]),
-            nonGrams: new Map([['pieczywo pełnoziarniste', [3, 'kromki']]]),
-          },
-        },
-      ],
     ]),
   ],
 ]);
@@ -319,7 +301,7 @@ meals.forEach(function (value1, key, _) {
       //Add meals to app
       'afterbegin',
       `<div class="meal flexCol">
-      <ion-icon class="infoIcon__card-min" name="information-circle" title="info" ></ion-icon> <ion-icon class="addIcon__card-min" name="add-circle"></ion-icon> <div class="meal__info"> <div class="meal__info__time"> <ion-icon class="timeIcon__card-min" name="hourglass-outline"></ion-icon> <span class="meal__info__time__text">${`'${value2.time}`}</span> </div> <p class="meal__info__kcal">${
+      <ion-icon class="infoIcon__card-min" name="information-circle" title="info" ></ion-icon> <div class="meal__info"> <div class="meal__info__time"> <ion-icon class="timeIcon__card-min" name="hourglass-outline"></ion-icon> <span class="meal__info__time__text">${`'${value2.time}`}</span> </div> <p class="meal__info__kcal">${
         value2.kcal
       } kcal</p> </div> <img class="meal__img" src="img/meal.jpg" alt="" /> <p class="meal__name">${
         value2.title
@@ -356,6 +338,7 @@ meals.forEach(function (value1, key, _) {
           value2.recipe
         }</p> </div> </div> </div>`
       );
+
       //##Closing Card Max
       const closeBtn = document.querySelector('.closeIcon__card-max');
       function closeMealMaxCard(btn) {
@@ -375,6 +358,7 @@ meals.forEach(function (value1, key, _) {
         '.mealMax__info__persons__number'
       );
       //###Function creating new ingredients string; I will try to shorten this function
+      let printIngredients = ''; //added because below function alone don't work in print section, so I add this variable to store value for meal in print section
       function newIngredientString() {
         let nonGramsIng = [];
         value2.ingredients.nonGrams.forEach(function (value, keys, map) {
@@ -397,6 +381,7 @@ meals.forEach(function (value1, key, _) {
         const allIngredientsNew = gramsIng.concat(nonGramsIng).join('\n');
         document.querySelector('.mealMax__ingredients__content').textContent =
           allIngredientsNew;
+        printIngredients = allIngredientsNew;
       }
       //###Adding Person & changing ingredients quantity
       addPerson.addEventListener('click', function () {
@@ -415,11 +400,21 @@ meals.forEach(function (value1, key, _) {
           : (removePerson.style.display = 'block');
         newIngredientString();
       });
+
       const addMealMaxToList = document.querySelector('.addIcon__card-max');
       const listFirstMealEl = document.querySelectorAll('.firstMeal');
       const listSecondMealEl = document.querySelectorAll('.secondMeal');
       const listThirdMealEl = document.querySelectorAll('.thirdMeal');
       const listCounterCurrent = document.querySelector('.list__counter__curr');
+      const printFirstMeals = document.querySelectorAll(
+        '.print__meals__day__firstMeal'
+      );
+      const printSecondMeals = document.querySelectorAll(
+        '.print__meals__day__secondMeal'
+      );
+      const printThirdMeals = document.querySelectorAll(
+        '.print__meals__day__thirdMeal'
+      );
       const listAddMeal = function (mealType) {
         addMealMaxToList.addEventListener('click', function () {
           //Creating array containing all empty (without text content) elements of a given type (firstMeal, secondMeal or thirdMeal)
@@ -436,7 +431,8 @@ meals.forEach(function (value1, key, _) {
           } else {
             //ADD Meal Title to List, Del Icon Visible, Channging Picked Meals Number in Counter
             //3 STEPS below is better than changing emptyMeal[0] textContent, this prevents from later bugs with counter update
-            const listMealSpan = document.createElement('span'); //1st STEP
+            const listMealSpan = document.createElement('span'); //1.1 STEP
+            listMealSpan.classList.add('listMealSpan'); //1.2
             listMealSpan.textContent = value2.title; //2nd STEP
             emptyMeal[0].appendChild(listMealSpan); //3rd STEP; here emptyMeal stop being empty
             emptyMeal[0].parentNode.insertAdjacentHTML(
@@ -447,9 +443,45 @@ meals.forEach(function (value1, key, _) {
             listCounterCurrent.textContent =
               Number(listCounterCurrent.textContent) + 1; //updating counter each time meal is added
           }
+          //ADD MEAL TO PRINT SECTION
+          //#Insert Recipe to Print section
+          let printMealType;
+          if (key === 'firstMeal') {
+            printMealType = printFirstMeals;
+          } else if (key === 'secondMeal') {
+            printMealType = printSecondMeals;
+          } else if (key === 'thirdMeal') {
+            printMealType = printThirdMeals;
+          }
+          const printEmptyMeal = [];
+
+          printMealType.forEach(value => {
+            if (!value.hasChildNodes()) {
+              printEmptyMeal.push(value);
+            }
+          });
+
+          newIngredientString();
+
+          printEmptyMeal[0]?.insertAdjacentHTML(
+            'beforeend',
+            `<div class="mealMax"> <div class="mealMax__title"> <h4> ${
+              value2.title
+            } </h4> </div> <div class="mealMax__info"> <div class="mealMax__info__persons"><span class="mealMax__info__persons__number">${
+              nrOfPersons.textContent
+            }</span class="mealMax__info__persons__text"><span>os.</span></div> <div class="mealMax__info__time"> <ion-icon class="timeIcon__card-max" name="hourglass-outline" ></ion-icon> <span class="mealMax__info__time__text">${`'${value2.time}`}</span> </div> <p class="mealMax__info__kcal">${
+              value2.kcal
+            } kcal</p> </div> <div class="mealMax__ingredients"> <p class="mealMax__ingredients__title">składniki:</p> <p class="mealMax__ingredients__content">${printIngredients}</p> </div> <div class="mealMax__recipe"> <p class="mealMax__recipe__title">Przygotowanie:</p> <p class="mealMax__recipe__content">${
+              value2.recipe
+            }</p> </div> </div> </div>`
+          );
+
+          // }
+
           //LIST
           //When CLICK on the name of a meal in the list, the Meal Max Card of that particular meal is shown, including changing the amount of ingredients
-          const nonEmptyMeal = emptyMeal[0]; //I may not created this variable but it helps me to better understand what's going on
+          const nonEmptyMeal = emptyMeal[0]?.firstElementChild;
+          //I may not created this variable but it helps me to better understand what's going on
           nonEmptyMeal?.addEventListener('click', function () {
             document.querySelector('.mealMax-bcblack').style.display = 'block';
             body.insertAdjacentHTML(
@@ -476,46 +508,36 @@ meals.forEach(function (value1, key, _) {
           //Removing meal from list
           const listRemoveIcons =
             document.querySelectorAll('.removeIcon__list');
-          // console.log(listRemoveIcons);
-          let iconArr = [];
-          listRemoveIcons.forEach(function (icon) {
-            iconArr.push(icon);
+          const printRemove = document.querySelectorAll(
+            '.printRemove .mealMax'
+          );
+          //all existing meals from Print Section are added to array to have the same index number as meals from List
+          let printRemoveArr = [];
+          printRemove.forEach(print => {
+            if (print.parentNode.hasChildNodes()) printRemoveArr.push(print);
           });
 
-          console.log(iconArr);
-
-          iconArr.forEach(function (el) {
-            el.addEventListener(
-              'click',
-              function () {
-                console.log(el.parentNode);
-              },
-              { once: true }
-            );
+          listRemoveIcons.forEach((icon, index) => {
+            icon.addEventListener('click', function () {
+              //Removing meals from print section
+              printRemoveArr[index]?.remove();
+              //Removing elements from list
+              icon.parentNode?.querySelector('.listMealSpan').remove();
+              icon.remove();
+              //Updating Counter
+              const listMealSpan = document.querySelectorAll('.listMealSpan');
+              let listMealSpanArrLength;
+              listMealSpan.forEach((value, key, array) => {
+                listMealSpanArrLength = array.length;
+              });
+              listMealSpanArrLength >= 1
+                ? (listCounterCurrent.textContent = listMealSpanArrLength)
+                : (listCounterCurrent.textContent = 0);
+            });
           });
-
-          // iconArr.map(function (value, index, array) {
-          //   console.log(value);
-          //   value.addEventListener('click', function () {
-          //     console.log(value.splice());
-          //   });
-          // });
-
-          // for (const icon of iconArr) {
-          //   icon.map(function (value, index, array) {
-          //     console.log(value);
-          //   });
-
-          //   icon.addEventListener('click', function () {
-          //     console.log(icon);
-
-          //     // icon.style.display = 'none';
-          //     // listCounterCurrent.textContent =
-          //     //   Number(listCounterCurrent.textContent) - 1;
-          //   });
-          // }
         });
       };
+
       if (key === 'firstMeal') {
         listAddMeal(listFirstMealEl);
       } else if (key === 'secondMeal') {
@@ -526,22 +548,7 @@ meals.forEach(function (value1, key, _) {
     });
   });
 });
-// 'meal6',
-// {
-//   title: 'Kanapki z twarożkiem i rzodkiewką 6',
-//   time: 40,
-//   kcal: 400,
-//   recipe:
-//     'Ser wymieszaj z jogurtem. Przypraw (pieprz, słodka papryka, bazylia). Posmaruej pieczywo twarożkiem. Na kanapce połóż pokrojoną rzodkiewkę',
-//   ingredients: {
-//     grams: new Map([
-//       ['twaróg chudy', [90, 'g']],
-//       ['jogurt naturalny', [45, 'g']],
-//       ['rzodkiewka', [45, 'g']],
-//     ]),
-//     nonGrams: new Map([['pieczywo pełnoziarniste', [3, 'kromki']]]),
-//   },
-// },
+
 // LIST
 
 const list = document.querySelector('.list');
@@ -558,14 +565,3 @@ listClose.addEventListener('click', function () {
   list.style.display = 'none';
   listClose.style.display = 'none';
 });
-//COUNTER
-
-//Number of children in every days of the week
-// const listDayContainers = document.querySelectorAll('.list__day__container');
-// let listNrOfChildren = 0;
-// listDayContainers.forEach(day => {
-//   const elNumber = day.childElementCount;
-//   return (listNrOfChildren += elNumber);
-// });
-// //Insert number of children to Counter
-// document.querySelector('.list__counter').textContent = `${listNrOfChildren}/21`;
