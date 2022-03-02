@@ -23,7 +23,7 @@ header {
   margin: 0 auto;
   height: 10rem;
   width: 80%;
-  background-color: red;
+  background-color: #ddd;
 }
 
 .hide {
@@ -260,8 +260,6 @@ h4 {
   background-color: #1f487e;
   width: 25rem;
   position: relative;
-  -webkit-transition: all 2s;
-  transition: all 2s;
   padding: 1.5rem;
 }
 .meal__img {
@@ -312,8 +310,6 @@ h4 {
   background-color: #1f487e;
   width: 50rem;
   position: relative;
-  -webkit-transition: all 2s;
-  transition: all 2s;
   display: grid;
   grid-template-areas: "title title" "more more" "img ingredients" "todo todo";
   grid-template-columns: 1fr 2fr;
@@ -326,7 +322,6 @@ h4 {
      -moz-column-gap: 0.8rem;
           column-gap: 0.8rem;
   padding: 1.6rem;
-  transition: all 2s;
 }
 .mealMax-fixed .mealMax__title {
   grid-area: title;
@@ -383,8 +378,6 @@ h4 {
   grid-area: ingredients;
   color: #bbb;
   width: 100%;
-  -webkit-animation: slideR 1s linear;
-          animation: slideR 1s linear;
 }
 .mealMax-fixed .mealMax__ingredients__title {
   font-size: 1.8rem;
@@ -399,8 +392,6 @@ h4 {
 }
 .mealMax-fixed .mealMax__recipe {
   grid-area: todo;
-  -webkit-transition: 2s;
-  transition: 2s;
 }
 .mealMax-fixed .mealMax__recipe__title {
   font-size: 1.8rem;
@@ -412,8 +403,6 @@ h4 {
   font-size: 1.4rem;
   font-weight: 400;
   color: #bbb;
-  -webkit-animation: slide 1s linear;
-          animation: slide 1s linear;
 }
 
 .mealMax-bcblack {
@@ -430,53 +419,20 @@ h4 {
   display: none;
 }
 
-@-webkit-keyframes slide {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes slide {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-@-webkit-keyframes slideR {
-  0% {
-    -webkit-transform: translateX(-20%);
-            transform: translateX(-20%);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-@keyframes slideR {
-  0% {
-    -webkit-transform: translateX(-20%);
-            transform: translateX(-20%);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-.print__meals {
-  display: none;
+.print {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.print__meals {
+  left: 0;
+  top: 0;
+  width: 101%;
+  position: absolute;
   background-color: #fff;
   z-index: 1;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -485,10 +441,13 @@ h4 {
       -ms-flex-align: center;
           align-items: center;
 }
+.print__meals__day {
+  height: 41.5cm;
+}
 .print__meals__day__name {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
   background-color: #ccc;
 }
@@ -519,7 +478,7 @@ h4 {
 .print__meals__day__secondMeal .mealMax__title,
 .print__meals__day__thirdMeal .mealMax__title {
   grid-area: title;
-  font-size: 2.6rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
 }
 .print__meals__day__firstMeal .mealMax__title h4,
