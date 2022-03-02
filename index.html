@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <section class="print">
+    <section id="print">
       <div class="print__meals">
         <div class="print__meals__day">
           <p class="print__meals__day__name">Day 1</p>
@@ -169,16 +169,12 @@
             </div>
           </div>
         </div>
-        <ion-icon name="print-sharp"></ion-icon>
+        <ion-icon class="printIcon__list" name="print-sharp"></ion-icon>
       </div>
     </div>
 
     <div class="meals flexCol">
-      <input
-        class="search"
-        type="text"
-        placeholder="Wpisz nazwę lub składnik"
-      />
+      <input class="search" type="text" placeholder="not working yet" />
 
       <section class="meal__section breakfast">
         <h3 class="meal__section__header">First Meal</h3>
