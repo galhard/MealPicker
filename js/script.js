@@ -456,11 +456,10 @@ meals.forEach(function (value1, key, _) {
           const printEmptyMeal = [];
 
           printMealType.forEach(value => {
-            if (!value.hasChildNodes()) {
+            if (value.firstElementChild === null) {
               printEmptyMeal.push(value);
             }
           });
-
           newIngredientString();
 
           printEmptyMeal[0]?.insertAdjacentHTML(
@@ -475,7 +474,7 @@ meals.forEach(function (value1, key, _) {
               value2.recipe
             }</p> </div> </div> </div>`
           );
-
+          console.log(printIngredients);
           // }
 
           //LIST
@@ -565,3 +564,25 @@ listClose.addEventListener('click', function () {
   list.style.display = 'none';
   listClose.style.display = 'none';
 });
+function printDivContent() {
+  const divElementContents = document.getElementById('print').innerHTML;
+  console.log(divElementContents);
+  const windows = window.open('', '', 'height=700px, width=500px');
+  // windows.document.write('<html>');
+  // windows.document.write("<body > <h1>Div's Content Are Printed Below<br>");
+  windows.document.write(divElementContents);
+  // windows.document.write('</body></html>');
+  windows.document.close();
+  windows.print();
+}
+document
+  .querySelector('.printIcon__list')
+  .addEventListener('click', function () {
+    const printArea = document.querySelector('.print__meals');
+    const listContainer = document.querySelector('.list__container');
+    printArea.style.display = 'flex';
+    listContainer.style.display = 'none';
+    window.print();
+    printArea.style.display = 'none';
+    listContainer.style.display = 'block';
+  });
