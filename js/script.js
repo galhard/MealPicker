@@ -359,25 +359,33 @@ meals.forEach(function (value1, key, _) {
       );
       //###Function creating new ingredients string; I will try to shorten this function
       let printIngredients = ''; //added because below function alone don't work in print section, so I add this variable to store value for meal in print section
+      let nonGramsIngPrint = []; //needed to make ingredients shop list
+      let gramsIngPrint = []; //needed to make ingredients shop list
       function newIngredientString() {
         let nonGramsIng = [];
+        let nonGramsIngObj = [];
         value2.ingredients.nonGrams.forEach(function (value, keys, map) {
           const nonGramsValueNew = value[0] * nrOfPersons.textContent;
           let nonGramsNewString =
             keys.padEnd(25, '.') +
             `${String(nonGramsValueNew)} ${value[1]}`.padStart(15, '.');
           nonGramsIng.push(nonGramsNewString);
-          return nonGramsIng;
+          nonGramsIngObj.push({ keys, nonGramsValueNew });
         });
+        nonGramsIngPrint = nonGramsIngObj;
+
         let gramsIng = [];
+        let gramsIngObj = [];
         value2.ingredients.grams.forEach(function (value, keys, map) {
           const gramsValueNew = value[0] * nrOfPersons.textContent;
           let gramsNewString =
             keys.padEnd(25, '.') +
             `${String(gramsValueNew)} ${value[1]}`.padStart(15, '.');
           gramsIng.push(gramsNewString);
-          return gramsIng;
+          gramsIngObj.push({ keys, gramsValueNew });
         });
+        gramsIngPrint = gramsIngObj;
+
         const allIngredientsNew = gramsIng.concat(nonGramsIng).join('\n');
         document.querySelector('.mealMax__ingredients__content').textContent =
           allIngredientsNew;
@@ -461,7 +469,8 @@ meals.forEach(function (value1, key, _) {
             }
           });
           newIngredientString();
-
+          console.log(nonGramsIngPrint);
+          console.log(gramsIngPrint);
           printEmptyMeal[0]?.insertAdjacentHTML(
             'beforeend',
             `<div class="mealMax"> <div class="mealMax__title"> <h4> ${
@@ -564,17 +573,7 @@ listClose.addEventListener('click', function () {
   list.style.display = 'none';
   listClose.style.display = 'none';
 });
-function printDivContent() {
-  const divElementContents = document.getElementById('print').innerHTML;
-  console.log(divElementContents);
-  const windows = window.open('', '', 'height=700px, width=500px');
-  // windows.document.write('<html>');
-  // windows.document.write("<body > <h1>Div's Content Are Printed Below<br>");
-  windows.document.write(divElementContents);
-  // windows.document.write('</body></html>');
-  windows.document.close();
-  windows.print();
-}
+//Print Print Section
 document
   .querySelector('.printIcon__list')
   .addEventListener('click', function () {
