@@ -192,6 +192,96 @@ const meals = new Map([
           },
         },
       ],
+      [
+        'meal6',
+        {
+          title: 'Kanapki z twarożkiem i rzodkiewką 5',
+          time: 40,
+          kcal: 400,
+          recipe:
+            'Ser wymieszaj z jogurtem. Przypraw (pieprz, słodka papryka, bazylia). Posmaruej pieczywo twarożkiem. Na kanapce połóż pokrojoną rzodkiewkę',
+          ingredients: {
+            grams: new Map([
+              ['twaróg chudy', [90, 'g']],
+              ['jogurt naturalny', [45, 'g']],
+              ['rzodkiewka', [45, 'g']],
+            ]),
+            nonGrams: new Map([['pieczywo pełnoziarniste', [3, 'kromki']]]),
+          },
+        },
+      ],
+      [
+        'meal7',
+        {
+          title: 'Kanapki z twarożkiem i rzodkiewką 5',
+          time: 40,
+          kcal: 400,
+          recipe:
+            'Ser wymieszaj z jogurtem. Przypraw (pieprz, słodka papryka, bazylia). Posmaruej pieczywo twarożkiem. Na kanapce połóż pokrojoną rzodkiewkę',
+          ingredients: {
+            grams: new Map([
+              ['twaróg chudy', [90, 'g']],
+              ['jogurt naturalny', [45, 'g']],
+              ['rzodkiewka', [45, 'g']],
+            ]),
+            nonGrams: new Map([['pieczywo pełnoziarniste', [3, 'kromki']]]),
+          },
+        },
+      ],
+      [
+        'meal8',
+        {
+          title: 'Kanapki z twarożkiem i rzodkiewką 5',
+          time: 40,
+          kcal: 400,
+          recipe:
+            'Ser wymieszaj z jogurtem. Przypraw (pieprz, słodka papryka, bazylia). Posmaruej pieczywo twarożkiem. Na kanapce połóż pokrojoną rzodkiewkę',
+          ingredients: {
+            grams: new Map([
+              ['twaróg chudy', [90, 'g']],
+              ['jogurt naturalny', [45, 'g']],
+              ['rzodkiewka', [45, 'g']],
+            ]),
+            nonGrams: new Map([['pieczywo pełnoziarniste', [3, 'kromki']]]),
+          },
+        },
+      ],
+      [
+        'meal9',
+        {
+          title: 'Kanapki z twarożkiem i rzodkiewką 5',
+          time: 40,
+          kcal: 400,
+          recipe:
+            'Ser wymieszaj z jogurtem. Przypraw (pieprz, słodka papryka, bazylia). Posmaruej pieczywo twarożkiem. Na kanapce połóż pokrojoną rzodkiewkę',
+          ingredients: {
+            grams: new Map([
+              ['twaróg chudy', [90, 'g']],
+              ['jogurt naturalny', [45, 'g']],
+              ['rzodkiewka', [45, 'g']],
+            ]),
+            nonGrams: new Map([['pieczywo pełnoziarniste', [3, 'kromki']]]),
+          },
+        },
+      ],
+      [
+        'meal10',
+        {
+          title: 'Kanapki z twarożkiem i rzodkiewką 5',
+          time: 40,
+          kcal: 400,
+          recipe:
+            'Ser wymieszaj z jogurtem. Przypraw (pieprz, słodka papryka, bazylia). Posmaruej pieczywo twarożkiem. Na kanapce połóż pokrojoną rzodkiewkę',
+          ingredients: {
+            grams: new Map([
+              ['twaróg chudy', [90, 'g']],
+              ['jogurt naturalny', [45, 'g']],
+              ['rzodkiewka', [45, 'g']],
+            ]),
+            nonGrams: new Map([['pieczywo pełnoziarniste', [3, 'kromki']]]),
+          },
+        },
+      ],
     ]),
   ],
   //######### THIRD MEAL #########
@@ -297,20 +387,23 @@ meals.forEach(function (value1, key, _) {
   const mealContainer = document.querySelector(`.${key}__container`);
   value1.forEach(function (value2, key2, map) {
     //Value = meal1, meal2, meal3,... = each meals
+
     mealContainer.insertAdjacentHTML(
       //Add meals to app
       'afterbegin',
       `<div class="meal flexCol">
       <ion-icon class="infoIcon__card-min" name="information-circle" title="info" ></ion-icon> <div class="meal__info"> <div class="meal__info__time"> <ion-icon class="timeIcon__card-min" name="hourglass-outline"></ion-icon> <span class="meal__info__time__text">${`'${value2.time}`}</span> </div> <p class="meal__info__kcal">${
         value2.kcal
-      } kcal</p> </div> <img class="meal__img" src="img/meal.jpg" alt="" /> <p class="meal__name">${
+      } kcal</p> </div> <img class="meal__img" src="img/meal.webp" alt="" /> <p class="meal__name">${
         value2.title
       }</p> </div>`
     );
+
     //#Opening Meal Max Card
     const mealCards = document.querySelector(`.${key}__container .meal`);
     const infoBtn = mealCards.querySelector('.infoIcon__card-min');
     const body = document.querySelector('body');
+
     infoBtn.addEventListener('click', function () {
       //Combining Ingredients into one string
       function combinedIngredients(ingredientsType) {
@@ -334,9 +427,9 @@ meals.forEach(function (value1, key, _) {
           value2.title
         }<ion-icon class="addIcon__card-max" name="add-circle" ></ion-icon> </h4> </div> <div class="mealMax__info"> <div class="mealMax__info__persons"> <ion-icon class="addPersonIcon__card-max" name="person-add" ></ion-icon ><span class="mealMax__info__persons__number">1</span class="mealMax__info__persons__text"><span>os.</span> <ion-icon class="removePersonIcon__card-max" name="person-remove" ></ion-icon> </div> <div class="mealMax__info__time"> <ion-icon class="timeIcon__card-max" name="hourglass-outline" ></ion-icon> <span class="mealMax__info__time__text">${`'${value2.time}`}</span> </div> <p class="mealMax__info__kcal">${
           value2.kcal
-        } kcal</p> </div> <img class="mealMax__img" src="img/meal.jpg" alt="" /> <div class="mealMax__ingredients"> <p class="mealMax__ingredients__title">składniki:</p> <p class="mealMax__ingredients__content">${allIngredients}</p> </div> <div class="mealMax__recipe"> <p class="mealMax__recipe__title">Przygotowanie:</p> <p class="mealMax__recipe__content">${
+        } kcal</p> </div> <img class="mealMax__img" src="img/meal.webp" alt="" /> <div class="mealMax__ingredients"> <p class="mealMax__ingredients__title">składniki:</p> <p class="mealMax__ingredients__content">${allIngredients}</p> </div> <div class="mealMax__recipe"> <p class="mealMax__recipe__title">Przygotowanie:</p> <p class="mealMax__recipe__content">${
           value2.recipe
-        }</p> </div> </div> </div>`
+        }</p> </div> <div class="meal-added"><p>meal added to the list</p></div></div> </div>`
       );
 
       //##Closing Card Max
@@ -423,11 +516,17 @@ meals.forEach(function (value1, key, _) {
       const printThirdMeals = document.querySelectorAll(
         '.print__meals__day__thirdMeal'
       );
+      let shopListMap = new Map();
       const listAddMeal = function (mealType) {
         addMealMaxToList.addEventListener('click', function () {
+          //Information about adding meal to the List
+          const mealAddedInfo = document.querySelector('.meal-added');
+          mealAddedInfo.style.display = 'block';
+          setTimeout(() => {
+            mealAddedInfo.style.display = 'none';
+          }, 1000);
           //Creating array containing all empty (without text content) elements of a given type (firstMeal, secondMeal or thirdMeal)
           const emptyMeal = [];
-
           for (const meal of mealType) {
             if (meal.textContent === '') {
               emptyMeal.push(meal);
@@ -469,8 +568,37 @@ meals.forEach(function (value1, key, _) {
             }
           });
           newIngredientString();
-          console.log(nonGramsIngPrint);
-          console.log(gramsIngPrint);
+          // ADD Ingredients to shop list. For now only works adding, if you remove meals from list ingredients, in shop list, not changing
+          let shopListArr = nonGramsIngPrint.concat(gramsIngPrint);
+          shopListArr.forEach(v => {
+            if (shopListMap.has(v.keys)) {
+              const keyValue = shopListMap.get(v.keys);
+              shopListMap.set(
+                v.keys,
+                v.nonGramsValueNew
+                  ? [keyValue[0] + v.nonGramsValueNew, 'pieces']
+                  : [keyValue[0] + v.gramsValueNew, 'g']
+              );
+            } else {
+              shopListMap.set(
+                v.keys,
+                v.nonGramsValueNew
+                  ? [v.nonGramsValueNew, 'pieces']
+                  : [v.gramsValueNew, 'g']
+              );
+            }
+            console.log(shopListMap);
+          });
+          let shopListStringArr = [];
+          shopListMap.forEach((value, key) => {
+            const string = `${key} - ${value[0]} ${value[1]}`;
+            shopListStringArr.push(string);
+          });
+          const shopListString = shopListStringArr.join('<br>');
+          console.log(shopListString);
+          document.querySelector(
+            '.print__meals__shop-list'
+          ).innerHTML = `<p>${shopListString}</p>`;
           printEmptyMeal[0]?.insertAdjacentHTML(
             'beforeend',
             `<div class="mealMax"> <div class="mealMax__title"> <h4> ${
@@ -529,6 +657,7 @@ meals.forEach(function (value1, key, _) {
             icon.addEventListener('click', function () {
               //Removing meals from print section
               printRemoveArr[index]?.remove();
+              console.log(printRemoveArr[index]);
               //Removing elements from list
               icon.parentNode?.querySelector('.listMealSpan').remove();
               icon.remove();
@@ -556,9 +685,30 @@ meals.forEach(function (value1, key, _) {
     });
   });
 });
+//Addin Blur to all meals except one we want to pick
+const allInfoBtns = document.querySelectorAll('.infoIcon__card-min');
+allInfoBtns.forEach(btn => {
+  btn.addEventListener('mouseover', function () {
+    btn
+      .closest('.more')
+      .querySelectorAll('.meal')
+      .forEach(meal => {
+        meal.style.filter = 'blur(5px)';
+      });
+
+    btn.closest('.meal').style.filter = 'none';
+  });
+  btn.addEventListener('mouseout', function () {
+    btn
+      .closest('.more')
+      .querySelectorAll('.meal')
+      .forEach(meal => {
+        meal.style.filter = 'none';
+      });
+  });
+});
 
 // LIST
-
 const list = document.querySelector('.list');
 //Showing List
 const listCounter = document.querySelector('.list__counter');
@@ -585,3 +735,61 @@ document
     printArea.style.display = 'none';
     listContainer.style.display = 'block';
   });
+
+//Adding footer Copyright info with actual date
+const footerDate = new Date();
+console.log(footerDate);
+document.querySelector(
+  '.footer'
+).lastElementChild.textContent = `Copyright © ${new Date().getFullYear()} All Rights Reserved`;
+
+//MORE MEALS
+//it's worki but code needs improvements;)
+//function making every meals with nr >5 invisible
+const invisibleMeals = (el, index) => {
+  if (index > 4) {
+    el.style.display = 'none';
+  }
+};
+//making every meals with nr >5 invisible
+document.querySelectorAll('.meal__section').forEach(section => {
+  section.querySelectorAll('.meal').forEach(invisibleMeals);
+});
+//All meals in current section become visible
+const moreMeals = document.querySelectorAll('.more-meals');
+moreMeals.forEach(moreMeal => {
+  const moreMealsContainer = moreMeal.parentElement.querySelector('.more');
+
+  moreMeal.addEventListener('click', function () {
+    moreMealsContainer.style.flexWrap = 'wrap';
+    moreMealsContainer
+      .querySelectorAll('.meal')
+      .forEach(meal => (meal.style.display = 'block'));
+    moreMeal.parentElement.classList.remove('background-img--less');
+    moreMeal.style.display = 'none';
+    moreMeal.parentElement
+      .querySelector('.less-meals')
+      .classList.remove('hide');
+    moreMeal.parentElement.scrollIntoView();
+  });
+});
+//All meals, except meals with nr <5, in current section become INvisible
+const lessMeals = document.querySelectorAll('.less-meals');
+lessMeals.forEach(lessMeal => {
+  const lessMealsContainer = lessMeal.parentElement.querySelector('.more');
+  lessMeal.addEventListener('click', function () {
+    lessMealsContainer.style.flexWrap = 'nowrap';
+    lessMealsContainer.querySelectorAll('.meal').forEach(invisibleMeals);
+    lessMeal.parentElement.classList.add('background-img--less');
+    lessMeal.classList.add('hide');
+    lessMeal.parentElement.querySelector('.more-meals').style.display = 'flex';
+    lessMeal.parentElement.scrollIntoView();
+  });
+});
+//Dynamically changing number of meals in current section
+document.querySelectorAll('.more-meals--nr').forEach(number => {
+  number.textContent = `${
+    number.closest('section').querySelector('.more').querySelectorAll('.meal')
+      .length
+  }`;
+});
