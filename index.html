@@ -58,12 +58,15 @@
           <div class="print__meals__day__secondMeal printRemove"></div>
           <div class="print__meals__day__thirdMeal printRemove"></div>
         </div>
-        <div>Ingredients shop list</div>
+        <div class="print__meals__shop-list"></div>
       </div>
     </section>
-    <div class="mealMax-bcblack"></div>
     <header>
-      <div class="header"><p>dsads</p></div>
+      <nav class="header">
+        <a href="#first-meal">first meals</a>
+        <a href="#second-meal">second meals</a>
+        <a href="#third-meal">third meals</a>
+      </nav>
     </header>
     <div class="list__container">
       <div class="list__counter">
@@ -169,27 +172,55 @@
             </div>
           </div>
         </div>
-        <ion-icon class="printIcon__list" name="print-sharp"></ion-icon>
+        <div class="list__days">
+          <ion-icon class="printIcon__list" name="print-sharp"></ion-icon>
+        </div>
       </div>
     </div>
 
     <div class="meals flexCol">
       <input class="search" type="text" placeholder="not working yet" />
 
-      <section class="meal__section breakfast">
+      <section class="meal__section background-img--less" id="first-meal">
         <h3 class="meal__section__header">First Meal</h3>
-        <div class="firstMeal__container flex"></div>
+        <div class="firstMeal__container more flex"></div>
+        <div class="more-meals">
+          <p>See all</p>
+          <p class="more-meals--nr">5</p>
+        </div>
+        <p class="less-meals hide">See less</p>
       </section>
-      <section class="meal__section lunch">
+      <section class="meal__section background-img--less" id="second-meal">
         <h3 class="meal__section__header">Second Meal</h3>
-        <div class="secondMeal__container flex"></div>
+        <div class="secondMeal__container more flex"></div>
+        <div class="more-meals">
+          <p>See all</p>
+          <p class="more-meals--nr">15</p>
+        </div>
+        <p class="less-meals hide">See less</p>
       </section>
-      <section class="meal__section dinner">
+      <section class="meal__section background-img--less" id="third-meal">
         <h3 class="meal__section__header">Third Meal</h3>
-        <div class="thirdMeal__container flex"></div>
+        <div class="thirdMeal__container more flex"></div>
+        <div class="more-meals">
+          <p>See all</p>
+          <p class="more-meals--nr">5</p>
+        </div>
+        <p class="less-meals hide">See less</p>
       </section>
     </div>
     <div class="meal__max"></div>
+    <footer class="footer">
+      <a href="https://github.com/galhard" target="_blank"
+        >Designed & Created by galhard</a
+      >
+      <p></p>
+    </footer>
+    <a href="#"
+      ><ion-icon class="scroll-up" name="arrow-up-outline"></ion-icon
+    ></a>
+
+    <div class="mealMax-bcblack"></div>
     <script src="js/script.js"></script>
     <script
       type="module"
