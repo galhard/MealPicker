@@ -506,6 +506,7 @@ meals.forEach(function (value1, key, _) {
       const listFirstMealEl = document.querySelectorAll('.firstMeal');
       const listSecondMealEl = document.querySelectorAll('.secondMeal');
       const listThirdMealEl = document.querySelectorAll('.thirdMeal');
+      const listCounter = document.querySelector('.list__counter');
       const listCounterCurrent = document.querySelector('.list__counter__curr');
       const printFirstMeals = document.querySelectorAll(
         '.print__meals__day__firstMeal'
@@ -549,6 +550,8 @@ meals.forEach(function (value1, key, _) {
             emptyMeal[0].nextElementSibling.style.display = 'block'; //showing removing icon that can be used to remove meal from list
             listCounterCurrent.textContent =
               Number(listCounterCurrent.textContent) + 1; //updating counter each time meal is added
+            if (listCounterCurrent.textContent !== '0')
+              listCounter.style.backgroundColor = '#ffd43b';
           }
           //ADD MEAL TO PRINT SECTION
           //#Insert Recipe to Print section
@@ -628,7 +631,7 @@ meals.forEach(function (value1, key, _) {
                 nrOfPersons.textContent
               }</span class="mealMax__info__persons__text"><span>os.</span></div> <div class="mealMax__info__time"> <ion-icon class="timeIcon__card-max" name="hourglass-outline" ></ion-icon> <span class="mealMax__info__time__text">${`'${value2.time}`}</span> </div> <p class="mealMax__info__kcal">${
                 value2.kcal
-              } kcal</p> </div> <img class="mealMax__img" src="img/meal.jpg" alt="" /> <div class="mealMax__ingredients"> <p class="mealMax__ingredients__title">składniki:</p> <p class="mealMax__ingredients__content">${allIngredients}</p> </div> <div class="mealMax__recipe"> <p class="mealMax__recipe__title">Przygotowanie:</p> <p class="mealMax__recipe__content">${
+              } kcal</p> </div> <img class="mealMax__img" src="img/meal.webp" alt="" /> <div class="mealMax__ingredients"> <p class="mealMax__ingredients__title">składniki:</p> <p class="mealMax__ingredients__content">${allIngredients}</p> </div> <div class="mealMax__recipe"> <p class="mealMax__recipe__title">Przygotowanie:</p> <p class="mealMax__recipe__content">${
                 value2.recipe
               }</p> </div> </div> </div>`
             );
@@ -667,9 +670,14 @@ meals.forEach(function (value1, key, _) {
               listMealSpan.forEach((value, key, array) => {
                 listMealSpanArrLength = array.length;
               });
-              listMealSpanArrLength >= 1
-                ? (listCounterCurrent.textContent = listMealSpanArrLength)
-                : (listCounterCurrent.textContent = 0);
+
+              if (listMealSpanArrLength >= 1) {
+                listCounterCurrent.textContent = listMealSpanArrLength;
+                listCounter.style.backgroundColor = '#ffd43b';
+              } else {
+                listCounterCurrent.textContent = 0;
+                listCounter.style.backgroundColor = '#c0cad8';
+              }
             });
           });
         });
@@ -713,15 +721,17 @@ const list = document.querySelector('.list');
 //Showing List
 const listCounter = document.querySelector('.list__counter');
 listCounter.addEventListener('click', function () {
-  list.style.display = 'block';
+  list.style.opacity = '1';
   listClose.style.display = 'block';
+  listCounter.style.opacity = '0';
 });
 
 //Hiding List
 const listClose = document.querySelector('.closeIcon__list');
 listClose.addEventListener('click', function () {
-  list.style.display = 'none';
+  list.style.opacity = '0';
   listClose.style.display = 'none';
+  listCounter.style.opacity = '1';
 });
 //Print Print Section
 document
@@ -730,10 +740,8 @@ document
     const printArea = document.querySelector('.print__meals');
     const listContainer = document.querySelector('.list__container');
     printArea.style.display = 'flex';
-    listContainer.style.display = 'none';
     window.print();
     printArea.style.display = 'none';
-    listContainer.style.display = 'block';
   });
 
 //Adding footer Copyright info with actual date
@@ -761,6 +769,9 @@ moreMeals.forEach(moreMeal => {
   const moreMealsContainer = moreMeal.parentElement.querySelector('.more');
 
   moreMeal.addEventListener('click', function () {
+    moreMeal.parentElement.querySelector('.meal__section__header').style.color =
+      '#c0cad8';
+
     moreMealsContainer.style.flexWrap = 'wrap';
     moreMealsContainer
       .querySelectorAll('.meal')
@@ -778,6 +789,8 @@ const lessMeals = document.querySelectorAll('.less-meals');
 lessMeals.forEach(lessMeal => {
   const lessMealsContainer = lessMeal.parentElement.querySelector('.more');
   lessMeal.addEventListener('click', function () {
+    lessMeal.parentElement.querySelector('.meal__section__header').style.color =
+      '#0d1b2a';
     lessMealsContainer.style.flexWrap = 'nowrap';
     lessMealsContainer.querySelectorAll('.meal').forEach(invisibleMeals);
     lessMeal.parentElement.classList.add('background-img--less');
@@ -793,3 +806,21 @@ document.querySelectorAll('.more-meals--nr').forEach(number => {
       .length
   }`;
 });
+//Showing Search input
+const searchIcon = document.querySelector('.searchIcon');
+const searchInput = document.querySelector('.search');
+searchIcon.addEventListener('click', () => {
+  searchInput.style.opacity = '1';
+  searchInput.focus();
+  searchIcon.style.opacity = '0.1';
+});
+searchInput.addEventListener('focusout', () => {
+  searchInput.value = '';
+  searchInput.style.opacity = '0';
+  searchIcon.style.opacity = '1';
+});
+
+const mealsHeight = document
+  .querySelector('.meals')
+  .getBoundingClientRect().height;
+console.log(mealsHeight);
