@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto+Mono:wght@400;500;600;700&family=Smooch+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
@@ -61,152 +61,172 @@
         <div class="print__meals__shop-list"></div>
       </div>
     </section>
+
     <header>
-      <nav class="header">
-        <a href="#first-meal">first meals</a>
-        <a href="#second-meal">second meals</a>
-        <a href="#third-meal">third meals</a>
-      </nav>
-    </header>
-    <div class="list__container">
-      <div class="list__counter">
-        <span class="list__counter__curr">0</span><span>/21</span>
-      </div>
-      <ion-icon class="closeIcon__list" name="close"></ion-icon>
-      <div class="list">
-        <div class="list__days">
-          <p class="list__days__dName">pon</p>
-          <div class="list__day__container">
-            <div class="list__days__day">
-              <span class="list__days__day__meal firstMeal"></span>
-            </div>
-            <div class="list__days__day test1">
-              <span class="list__days__day__meal secondMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal thirdMeal"></span>
+      <section class="hero">
+        <div class="hero__side"></div>
+        <p class="hero__title">Meal Picker</p>
+        <div class="hero__side"></div>
+      </section>
+      <div class="list__container">
+        <div class="list__counter">
+          <span class="list__counter__curr">0</span><span>/21</span>
+        </div>
+
+        <div class="list">
+          <ion-icon class="closeIcon__list" name="close"></ion-icon>
+          <div class="list__days">
+            <p class="list__days__dName">pon</p>
+            <div
+              class="list__days__container"
+              style="border-left: 1px solid rgba(0, 0, 0, 0.1)"
+            >
+              <div class="list__days__day">
+                <span class="list__days__day__meal firstMeal"></span>
+              </div>
+              <div class="list__days__day test1">
+                <span class="list__days__day__meal secondMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal thirdMeal"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="list__days">
-          <p class="list__days__dName">Wt</p>
-          <div class="list__day__container">
-            <div class="list__days__day">
-              <span class="list__days__day__meal firstMeal"></span>
-            </div>
-            <div class="list__days__day test2">
-              <span class="list__days__day__meal secondMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal thirdMeal"></span>
-            </div>
-          </div>
-        </div>
-        <div class="list__days">
-          <p class="list__days__dName">Śr</p>
-          <div class="list__day__container">
-            <div class="list__days__day">
-              <span class="list__days__day__meal marD firstMeal"></span>
-            </div>
-            <div class="list__days__day test3">
-              <span class="list__days__day__meal secondMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal thirdMeal"></span>
+          <div class="list__days">
+            <p class="list__days__dName">Wt</p>
+            <div class="list__days__container">
+              <div class="list__days__day">
+                <span class="list__days__day__meal firstMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal secondMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal thirdMeal"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="list__days">
-          <p class="list__days__dName">Czw</p>
-          <div class="list__day__container">
-            <div class="list__days__day">
-              <span class="list__days__day__meal 67 firstMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal secondMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal thirdMeal"></span>
-            </div>
-          </div>
-        </div>
-        <div class="list__days">
-          <p class="list__days__dName">Pt</p>
-          <div class="list__day__container">
-            <div class="list__days__day">
-              <span class="list__days__day__meal firstMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal secondMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal thirdMeal"></span>
+          <div class="list__days">
+            <p class="list__days__dName">Śr</p>
+            <div class="list__days__container">
+              <div class="list__days__day">
+                <span class="list__days__day__meal marD firstMeal"></span>
+              </div>
+              <div class="list__days__day test3">
+                <span class="list__days__day__meal secondMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal thirdMeal"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="list__days">
-          <p class="list__days__dName">sob</p>
-          <div class="list__day__container">
-            <div class="list__days__day">
-              <span class="list__days__day__meal firstMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal secondMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal thirdMeal"></span>
-            </div>
-          </div>
-        </div>
-        <div class="list__days">
-          <p class="list__days__dName">Ndz</p>
-          <div class="list__day__container">
-            <div class="list__days__day">
-              <span class="list__days__day__meal firstMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal secondMeal"></span>
-            </div>
-            <div class="list__days__day">
-              <span class="list__days__day__meal thirdMeal"></span>
+          <div class="list__days">
+            <p class="list__days__dName">Czw</p>
+            <div class="list__days__container">
+              <div class="list__days__day">
+                <span class="list__days__day__meal 67 firstMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal secondMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal thirdMeal"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="list__days">
+          <div class="list__days">
+            <p class="list__days__dName">Pt</p>
+            <div class="list__days__container">
+              <div class="list__days__day">
+                <span class="list__days__day__meal firstMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal secondMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal thirdMeal"></span>
+              </div>
+            </div>
+          </div>
+          <div class="list__days">
+            <p class="list__days__dName">sob</p>
+            <div class="list__days__container">
+              <div class="list__days__day">
+                <span class="list__days__day__meal firstMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal secondMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal thirdMeal"></span>
+              </div>
+            </div>
+          </div>
+          <div class="list__days">
+            <p class="list__days__dName">Ndz</p>
+            <div class="list__days__container">
+              <div class="list__days__day">
+                <span class="list__days__day__meal firstMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal secondMeal"></span>
+              </div>
+              <div class="list__days__day">
+                <span class="list__days__day__meal thirdMeal"></span>
+              </div>
+            </div>
+          </div>
           <ion-icon class="printIcon__list" name="print-sharp"></ion-icon>
         </div>
+        <!-- <div class="list__days">
+          <ion-icon class="printIcon__list" name="print-sharp"></ion-icon>
+        </div> -->
       </div>
-    </div>
+
+      <nav class="header">
+        <a href="#first-meal">Śniadanie</a>
+        <a href="#second-meal">Obiad</a>
+        <a href="#third-meal">Kolacja</a>
+        <ion-icon class="searchIcon" name="search"></ion-icon>
+        <input class="search" type="text" placeholder="not working yet" />
+      </nav>
+    </header>
 
     <div class="meals flexCol">
-      <input class="search" type="text" placeholder="not working yet" />
+      <!-- <input class="search" type="text" placeholder="not working yet" /> -->
 
       <section class="meal__section background-img--less" id="first-meal">
-        <h3 class="meal__section__header">First Meal</h3>
+        <h3 class="meal__section__header">- Śniadanie -</h3>
         <div class="firstMeal__container more flex"></div>
-        <div class="more-meals">
-          <p>See all</p>
+        <ion-icon class="more-meals" name="chevron-down-circle"></ion-icon>
+        <ion-icon class="less-meals hide" name="chevron-up-circle"></ion-icon>
+        <!-- <div class="more-meals">
+          <p>wszystkie</p>
           <p class="more-meals--nr">5</p>
         </div>
-        <p class="less-meals hide">See less</p>
+        <p class="less-meals hide">zwiń</p> -->
       </section>
       <section class="meal__section background-img--less" id="second-meal">
-        <h3 class="meal__section__header">Second Meal</h3>
+        <h3 class="meal__section__header">- Obiad -</h3>
         <div class="secondMeal__container more flex"></div>
-        <div class="more-meals">
-          <p>See all</p>
+        <ion-icon class="more-meals" name="chevron-down-circle"></ion-icon>
+        <ion-icon class="less-meals hide" name="chevron-up-circle"></ion-icon>
+        <!-- <div class="more-meals">
+          <p>wszystkie</p>
           <p class="more-meals--nr">15</p>
         </div>
-        <p class="less-meals hide">See less</p>
+        <p class="less-meals hide">zwiń</p> -->
       </section>
       <section class="meal__section background-img--less" id="third-meal">
-        <h3 class="meal__section__header">Third Meal</h3>
+        <h3 class="meal__section__header">- Kolacja -</h3>
         <div class="thirdMeal__container more flex"></div>
-        <div class="more-meals">
-          <p>See all</p>
+        <ion-icon class="more-meals" name="chevron-down-circle"></ion-icon>
+        <ion-icon class="less-meals hide" name="chevron-up-circle"></ion-icon>
+        <!-- <div class="more-meals">
+          <p>wszystkie</p>
           <p class="more-meals--nr">5</p>
         </div>
-        <p class="less-meals hide">See less</p>
+        <p class="less-meals hide">zwiń</p> -->
       </section>
     </div>
     <div class="meal__max"></div>
