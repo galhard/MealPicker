@@ -9,122 +9,121 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Roboto", sans-serif;
+  font-family: "Smooch Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0 auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: #1d3461;
-}
-
-header {
-  margin: 0 auto;
-  height: 10rem;
-  width: 80%;
-  background-color: #ddd;
+  background-color: #0d1b2a;
 }
 
 .hide {
   display: none;
-}
-
-.meal__section {
-  margin: 0 auto;
-}
-
-.search {
-  margin: 2rem 0;
-  padding: 1rem;
-  height: 3rem;
-  width: 30%;
-  border-radius: 10px;
-}
-
-.hide {
-  display: none;
-}
-
-ion-icon {
-  color: #5095b3;
-  font-weight: 700;
 }
 
 h2,
-h3,
+h3 {
+  color: #e0e1dd;
+}
+
 h4 {
-  color: #bbb;
+  color: black;
 }
 
-.addIcon__card-min,
-.infoIcon__card-min {
-  position: absolute;
-  font-size: 1.8rem;
+.hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr auto 3fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3.2rem 0 1.2rem 0;
+}
+.hero__side {
+  height: 5.2rem;
+  width: 100%;
+  border-top: 2px solid #ced4da;
+  border-bottom: 2px solid #ced4da;
+}
+.hero__title {
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  font-size: 7.4rem;
+  margin: 0 2rem;
+  color: #ffd43b;
 }
 
-.infoIcon__card-min {
-  bottom: 5px;
-  right: 5px;
+.header {
+  margin: 1rem auto;
+  display: grid;
+  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: repeat(4, -webkit-min-content);
+  grid-template-columns: repeat(4, min-content);
+  -webkit-column-gap: 5rem;
+     -moz-column-gap: 5rem;
+          column-gap: 5rem;
+  row-gap: 1rem;
+}
+.header a {
+  color: #c0cad8;
+  text-transform: lowercase;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 2.4rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.header a:hover, .header a:active {
+  -webkit-text-decoration: underline 3px;
+          text-decoration: underline 3px;
+  text-underline-offset: 5px;
 }
 
-.timeIcon__card-min {
-  font-size: 2rem;
+.footer {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 1.6rem 0;
+  font-weight: 600;
+}
+.footer a {
+  display: block;
+  text-decoration: none;
+  color: #444;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.footer a:hover, .footer a:active {
+  -webkit-transform: scale(110%);
+          transform: scale(110%);
 }
 
-.closeIcon__card-max {
-  position: absolute;
-  right: 0.4rem;
-  top: 0.4rem;
-  font-size: 2rem;
-  color: #fb3640;
-}
-
-.addIcon__card-max {
-  position: absolute;
-  left: 0.4rem;
-  top: 0.4rem;
-  font-size: 4rem;
-}
-
-.timeIcon__card-max {
-  font-size: 1.8rem;
-}
-
-.addPersonIcon__card-max {
-  font-size: 1.8rem;
-}
-
-.removePersonIcon__card-max {
-  font-size: 1.8rem;
-  display: none;
-}
-
-.closeIcon__list {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 3rem;
-  padding: 1rem;
-  border-radius: 100%;
-  background-color: #5095b3;
-  display: none;
-  -webkit-transform: translate(60%, -60%);
-          transform: translate(60%, -60%);
-  color: #fb3640;
-}
-
-.removeIcon__list {
-  display: none;
-  font-size: 1.6rem;
-  color: #fb3640;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+.more-meals,
+.less-meals {
+  margin: 2.4rem auto 1.2rem auto;
+  padding: 0 0;
+  font-size: 4.4rem;
+  font-weight: 300;
+  color: #c0cad8;
   cursor: pointer;
 }
-.removeIcon__list:hover, .removeIcon__list:active {
-  -webkit-transform: scale(160%);
-          transform: scale(160%);
+.more-meals:hover, .more-meals:active,
+.less-meals:hover,
+.less-meals:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.more-color {
+  color: #c0cad8;
 }
 
 @-webkit-keyframes moveInLeft {
@@ -239,37 +238,201 @@ h4 {
   display: -ms-flexbox;
   display: flex;
   gap: 3rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.background-img--less {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ced4da), color-stop(60%, #0d1b2a));
+  background-image: linear-gradient(#ced4da 0% 60%, #0d1b2a 60% 100%);
+}
+
+.background-img--more {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ced4da), color-stop(10%, #0d1b2a));
+  background-image: linear-gradient(#ced4da 0% 15%, #0d1b2a 10% 100%);
+}
+
+ion-icon {
+  color: #1b263b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.addIcon__card-min,
+.infoIcon__card-min {
+  position: absolute;
+  font-size: 1.8rem;
+}
+
+.infoIcon__card-min {
+  bottom: 5px;
+  right: 5px;
+}
+
+.timeIcon__card-min {
+  font-size: 2rem;
+  cursor: default;
+}
+
+.closeIcon__card-max {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+  font-size: 2rem;
+  color: #fb3640;
+}
+
+.addIcon__card-max {
+  position: absolute;
+  left: 0.4rem;
+  top: 0.4rem;
+  font-size: 4rem;
+}
+
+.timeIcon__card-max {
+  font-size: 1.8rem;
+  cursor: default;
+}
+
+.addPersonIcon__card-max {
+  font-size: 1.8rem;
+}
+
+.removePersonIcon__card-max {
+  font-size: 1.8rem;
+  display: none;
+}
+
+.closeIcon__list {
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 2rem;
+  height: 100%;
+  background-color: #ced4da;
+  display: block;
+  color: #fb3640;
+}
+.closeIcon__list:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.printIcon__list {
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 2rem;
+  height: 100%;
+  background-color: #ced4da;
+}
+
+.removeIcon__list {
+  display: none;
+  font-size: 1.6rem;
+  color: #fb3640;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.removeIcon__list:hover, .removeIcon__list:active {
+  -webkit-transform: scale(160%);
+          transform: scale(160%);
+}
+
+.scroll-up {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  font-size: 4rem;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100px;
+  background-color: #ced4da;
+  color: #1b263b;
+  z-index: 0;
+}
+
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.search {
+  grid-column: 1/-1;
+  padding: 1rem;
+  height: 3rem;
+  width: 30rem;
+  border-radius: 3px;
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border: none;
+  color: #0d1b2a;
+}
+
+input:focus {
+  outline: 4px solid #ffd43b;
+}
+
+.searchIcon {
+  color: #c0cad8;
+  font-size: 3.6rem;
+  font-weight: 700;
+  opacity: 1;
 }
 
 .meal__section {
   margin: 0rem auto;
   width: 100%;
-  padding: 0 0 0 10rem;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(7%, #1d3461), color-stop(7%, #fff), color-stop(60%, #1d3461));
-  background-image: linear-gradient(#1d3461 7%, #fff 7% 60%, #1d3461 60% 100%);
+  padding: 0 10rem;
+  border-top: 5px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .meal__section__header {
-  margin-bottom: 2.4rem;
-  text-transform: uppercase;
-  font-size: 2.4rem;
+  margin: 2.4rem 0;
+  text-transform: lowercase;
+  text-align: center;
+  letter-spacing: 0.05px;
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: #0d1b2a;
 }
 
 .meal {
-  margin-bottom: 4.8rem;
-  border-radius: 10px;
-  background-color: #1f487e;
+  border-radius: 7px;
+  background-color: #c0cad8;
   width: 25rem;
   position: relative;
+  -webkit-box-shadow: 4px 4px 6px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 4px 4px 6px 3px rgba(0, 0, 0, 0.5);
   padding: 1.5rem;
+  -webkit-transition: -webkit-filter 0.5s;
+  transition: -webkit-filter 0.5s;
+  transition: filter 0.5s;
+  transition: filter 0.5s, -webkit-filter 0.5s;
 }
 .meal__img {
   border-radius: 10px;
   width: 22rem;
 }
 .meal__name {
-  color: #bbb;
+  color: #0d1b2a;
   font-size: 1.4rem;
   margin: 1rem 0;
+  font-weight: 700;
 }
 .meal__info {
   display: -webkit-box;
@@ -284,7 +447,7 @@ h4 {
           justify-content: space-between;
   font-size: 1.6rem;
   margin-bottom: 0.7rem;
-  color: #bbb;
+  color: #0d1b2a;
 }
 .meal__info__time {
   display: -webkit-box;
@@ -306,8 +469,8 @@ h4 {
 }
 .mealMax-fixed .mealMax {
   margin-bottom: 4.8rem;
-  border-radius: 10px;
-  background-color: #1f487e;
+  border-radius: 7px;
+  background-color: #c0cad8;
   width: 50rem;
   position: relative;
   display: grid;
@@ -326,6 +489,7 @@ h4 {
 .mealMax-fixed .mealMax__title {
   grid-area: title;
   font-size: 1.8rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 .mealMax-fixed .mealMax__info {
@@ -341,7 +505,7 @@ h4 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 1.4rem;
-  color: #bbb;
+  color: #0d1b2a;
   position: relative;
 }
 .mealMax-fixed .mealMax__info__persons {
@@ -353,6 +517,7 @@ h4 {
           align-items: center;
   gap: 0.5rem;
   font-weight: 700;
+  width: 8rem;
 }
 .mealMax-fixed .mealMax__info__time {
   display: -webkit-box;
@@ -376,18 +541,19 @@ h4 {
 }
 .mealMax-fixed .mealMax__ingredients {
   grid-area: ingredients;
-  color: #bbb;
+  color: #0d1b2a;
   width: 100%;
+  align-self: start;
 }
 .mealMax-fixed .mealMax__ingredients__title {
   font-size: 1.8rem;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: end;
 }
 .mealMax-fixed .mealMax__ingredients__content {
   font-family: "Roboto Mono", monospace;
   font-size: 1.2rem;
-  font-weight: 400;
   text-align: end;
 }
 .mealMax-fixed .mealMax__recipe {
@@ -395,14 +561,35 @@ h4 {
 }
 .mealMax-fixed .mealMax__recipe__title {
   font-size: 1.8rem;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #bbb;
+  color: #0d1b2a;
   margin-bottom: 1rem;
 }
 .mealMax-fixed .mealMax__recipe__content {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #bbb;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #0d1b2a;
+}
+.mealMax-fixed .mealMax .meal-added {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.mealMax-fixed .mealMax .meal-added p {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transform: translate(0, 45%);
+          transform: translate(0, 45%);
+  color: red;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .mealMax-bcblack {
@@ -419,7 +606,125 @@ h4 {
   display: none;
 }
 
-.print {
+.list__container {
+  margin: 0 auto 2.4rem auto;
+  height: 8rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.list__container .list__counter {
+  font-family: "Dancing Script", cursive;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  background-color: #c0cad8;
+  color: #0d1b2a;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 50;
+  cursor: pointer;
+  -webkit-box-shadow: 1.5px 1.5px 3px 1.5px rgba(0, 0, 0, 0.5);
+          box-shadow: 1.5px 1.5px 3px 1.5px rgba(0, 0, 0, 0.5);
+}
+.list__container .list__counter:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.list__container .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  -webkit-box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+  background-color: #c0cad8;
+  color: #0d1b2a;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.list__container .list__title {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.list__container .list__days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 17rem;
+}
+.list__container .list__days__dName {
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+  width: 100%;
+  height: 1.7rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0d1b2a;
+  text-transform: uppercase;
+  background-color: #ced4da;
+}
+.list__container .list__days__container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.1rem 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.list__container .list__days__day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2.1rem;
+}
+.list__container .list__days__day__meal {
+  padding-left: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.list__container .list__days__day__meal:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+#print {
   width: 100%;
   height: 100%;
   position: relative;
@@ -431,7 +736,7 @@ h4 {
   width: 101%;
   position: absolute;
   background-color: #fff;
-  z-index: 1;
+  z-index: 10;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -442,7 +747,7 @@ h4 {
           align-items: center;
 }
 .print__meals__day {
-  height: 41.5cm;
+  height: 40.3cm;
 }
 .print__meals__day__name {
   text-transform: uppercase;
@@ -450,6 +755,21 @@ h4 {
   font-size: 2rem;
   text-align: center;
   background-color: #ccc;
+}
+.print__meals__shop-list {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+.print__meals__shop-list::before {
+  content: "Ingredients List";
+  width: 100%;
+  line-height: 4rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  -webkit-text-decoration: underline dashed 2px;
+          text-decoration: underline dashed 2px;
 }
 
 .print__meals__day__firstMeal .mealMax,
@@ -597,101 +917,4 @@ h4 {
 .print__meals__day__secondMeal .mealMax {
   border-top: 2px dashed black;
   border-bottom: 2px dashed black;
-}
-
-.list__container {
-  margin: 5rem auto;
-  width: 20rem;
-  position: fixed;
-  left: 5rem;
-  z-index: 33;
-}
-.list__container .list__counter {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 100%;
-  background-color: #5095b3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transform: translate(-60%, -60%);
-          transform: translate(-60%, -60%);
-  color: #fb3640;
-  cursor: pointer;
-}
-.list__container .list {
-  display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
-          box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
-  background-color: #1f487e;
-  color: #bbb;
-}
-.list__container .list__title {
-  font-size: 1.4rem;
-  background-color: red;
-  text-transform: uppercase;
-}
-.list__container .list__days {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.list__container .list__days__dName {
-  padding: 0.2rem 0;
-  -ms-flex-item-align: center;
-      align-self: center;
-  text-align: center;
-  width: 100%;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  background-color: #5095b3;
-}
-.list__container .list__days__day {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 1.4rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.list__container .list__days__day__meal {
-  padding-left: 0.5rem;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-.list__container .list__days__day__meal:hover {
-  -webkit-transform: scale(120%);
-          transform: scale(120%);
-}
-
-.list__day__container {
-  height: 4.2rem;
 }
