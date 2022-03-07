@@ -18,6 +18,7 @@
       - ~~close button~~
  3. ~~Improve the overall look of the website~~
  3. Print section:
+    - change fonts in Print Section
     - ~~add meal to Print list when it's added to the List~~
     - ~~recalculate ingredients Shop List each time meal is ADDED to Print Section~~
     - recalculate ingredients Shop List each time meal is REMOVED from Print Section
@@ -25,4 +26,5 @@
 
 
 
-## live version - https://modest-hawking-2a0ff5.netlify.app/
+## live version - https://flamboyant-gates-7be86d.netlify.app/
+https://modest-hawking-2a0ff5.netlify.app/
