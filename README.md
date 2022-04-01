@@ -1,5 +1,7 @@
 # MealPicker
-## Road to v1
+What you can see here is version 1. It was created when I started learning JS. For now, it is waiting for me to finish learning Angular and then I will create final version of it.
+<!-- ## Road to v1 -->
+<!-- 
 1. ~~Design and create basic look of the page using only HTML & CSS~~
     - ~~general layaout~~
     - ~~basic and detailed meal card look~~
@@ -22,9 +24,9 @@
     - ~~add meal to Print list when it's added to the List~~
     - ~~recalculate ingredients Shop List each time meal is ADDED to Print Section~~
     - recalculate ingredients Shop List each time meal is REMOVED from Print Section
- 4. Implement searching
+ 4. Implement searching -->
 
 
 
 ## live version - https://flamboyant-gates-7be86d.netlify.app/
-https://modest-hawking-2a0ff5.netlify.app/
+
